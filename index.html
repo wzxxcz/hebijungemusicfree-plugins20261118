@@ -299,8 +299,8 @@
   <!-- ============ 澜音 Ceru ============ -->
   <section class="eco-panel" data-panel="ceru">
     <div class="ceru-card" id="sec-ceru">
-      <h2>🌀 澜音（CeruMusic）v2 插件 · MusicFree 适配版 <span class="ver">57 个 · 混淆</span></h2>
-      <p class="tip">由本仓 57 个 MusicFree 插件自动转换为澜音 v2 原生 artifact，高强度混淆（RC4 字符串数组 + 控制流扁平化 + 十六进制标识符）。未混淆源码只存于私有仓，公开仓仅发布混淆产物。</p>
+      <h2>🌀 澜音（CeruMusic）v2 插件 · MusicFree 适配版 <span class="ver">57 个</span></h2>
+      <p class="tip">由本仓 57 个 MusicFree 插件适配为澜音 v2 原生 artifact，搜索 / 取链 / 歌词沿用原插件实现。</p>
       <div class="sub-row">
         <span class="label">插件清单 · 57 条</span>
         <a id="url-ceru-json" class="code-link" href="https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json" target="_blank" rel="noopener">https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json</a>
@@ -311,7 +311,7 @@
       · 首次启用授予 <b>network（网络访问）</b>权限；<br>
       · v2 artifact 不是订阅清单，一次导入一个插件。</p>
       <p class="tip">搜索 / 取链 / 歌词沿用原 MusicFree 插件实现，网络统一走宿主 <code>core.http.request</code> 代理；榜单映射到 <code>charts</code>，歌单导入（importMusicSheet）已桥接为 <code>playlistImporters</code>，LRC 歌词转成毫秒时间轴。</p>
-      <p class="lx-warn">⚠️ 澜音 v2 artifact、LX 自定义源、MusicFree 插件是三套互不通用的协议，请在对应播放器的插件入口安装。超大插件（agg）自动降为轻量混淆档，以满足澜音 50 万 AST 节点上限。</p>
+      <p class="lx-warn">⚠️ 澜音 v2 artifact、LX 自定义源、MusicFree 插件是三套互不通用的协议，请在对应播放器的插件入口安装。超大插件（agg）采用精简构建，以满足澜音 50 万 AST 节点上限。</p>
       <p class="tip" style="margin:12px 0 0"><a class="lnk" href="CERU-README.md">📖 查看完整说明（含全部 57 条 raw URL）</a></p>
     </div>
   </section>
@@ -320,7 +320,7 @@
   <section class="eco-panel" data-panel="lx">
     <div class="lx-card" id="sec-lx">
       <h2>🎼 洛雪（LX）自定义源 · 多播放器通用 <span class="ver">v1.6.0</span></h2>
-      <p class="tip">五源合一 LX 格式自定义源脚本（混淆发布），适用于所有支持洛雪(LX)插件协议的播放器（洛雪、澜音 CeruMusic 等）。非订阅机制、一次导入一个脚本，导入后不会随清单自动更新。</p>
+      <p class="tip">五源合一 LX 格式自定义源脚本，适用于所有支持洛雪(LX)插件协议的播放器（洛雪、澜音 CeruMusic 等）。非订阅机制、一次导入一个脚本，导入后不会随清单自动更新。</p>
       <div id="lx-list">
         <div class="sub-row lx-item">
           <span class="label">五源合一(LX) · 导入链接 · v1.6.0</span>
