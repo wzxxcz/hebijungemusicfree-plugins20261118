@@ -9733,14 +9733,14 @@ exports.activate = function (core) {
     }
   });
 
-  // _entry_47836.js
-  var require_entry_47836 = __commonJS({
-    "_entry_47836.js"(exports, module) {
+  // _entry_49448.js
+  var require_entry_49448 = __commonJS({
+    "_entry_49448.js"(exports, module) {
       var __plugin = require_qq_source_plugin_v1_9_26();
       module.exports = __plugin;
     }
   });
-  return require_entry_47836();
+  return require_entry_49448();
 })();
 
   var plugin = __MF_PLUGIN_BUNDLE__;
@@ -9855,12 +9855,12 @@ exports.activate = function (core) {
       
       // ===== 诊断模式：把返回值特征编码进 title，真机搜索界面可读 =====
       var diagItems = [];
-      function drow(t, s) { diagItems.push({ ref:{providerId:PROVIDER_ID,kind:'track',id:'dg'+diagItems.length,scope:'provider'}, title:String(t), subtitle:String(s||''), capabilities:[], metadata:{artists:['DIAG']} }); }
-      drow('DG-q', query + '|p' + page + '|' + type);
-      drow('DG-res', 'arr=' + Array.isArray(res) + ' keys=' + (res ? Object.keys(res).join(',') : 'NULL'));
-      drow('DG-list', 'len=' + list.length);
-      drow('DG-http', 'calls=' + ((globalThis.__MF_HTTP_LOG__||[]).length));
-      (globalThis.__MF_HTTP_LOG__||[]).slice(-3).forEach(function(h,i){ drow('DG-h'+i, h); });
+      function drow(t, s) { diagItems.push({ ref:{providerId:PROVIDER_ID,kind:'track',id:'dg'+diagItems.length,scope:'provider'}, title:String(t)+'|'+String(s||'').slice(0,55), capabilities:[], metadata:{artists:['DIAG']} }); }
+      drow('q', query + '|p' + page + '|' + type);
+      drow('res', 'arr=' + Array.isArray(res) + ' keys=' + (res ? Object.keys(res).join(',') : 'NULL'));
+      drow('list', 'len=' + list.length);
+      drow('http', 'calls=' + ((globalThis.__MF_HTTP_LOG__||[]).length));
+      (globalThis.__MF_HTTP_LOG__||[]).slice(-4).forEach(function(h,i){ drow('h'+i, h); });
       return { items: diagItems };
       
     } catch (e) { var di=[{ref:{providerId:PROVIDER_ID,kind:'track',id:'dge',scope:'provider'},title:'DG-ERR',subtitle:String(e&&e.message).slice(0,60),capabilities:[],metadata:{artists:['DIAG']}}]; return {items:di}; }
