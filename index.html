@@ -303,16 +303,16 @@
       <p class="tip">由本仓 57 个 MusicFree 插件适配为澜音 v2 原生 artifact，搜索 / 取链 / 歌词沿用原插件实现。</p>
       <div class="sub-row">
         <span class="label">插件清单 · 57 条</span>
-        <a id="url-ceru-json" class="code-link" href="https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json" target="_blank" rel="noopener">https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json</a>
+        <a id="url-ceru-json" class="code-link" href="https://gh.padao.fun/https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json" target="_blank" rel="noopener">https://gh.padao.fun/https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json</a>
         <button class="btn" data-copy="url-ceru-json">复制</button>
       </div>
       <p class="lx-steps"><b>安装方法：</b><br>
-      · <b>澜音 CeruMusic</b>：插件管理 → 添加插件 → 粘贴下方任一插件的 <code>raw 直链</code>，或下载 <code>.js</code> 后从文件导入；<br>
+      · <b>澜音 CeruMusic</b>：插件管理 → 添加插件 → 粘贴下方任一插件的 <code>加速直链</code>，或下载 <code>.js</code> 后从文件导入；<br>
       · 首次启用授予 <b>network（网络访问）</b>权限；<br>
       · v2 artifact 不是订阅清单，一次导入一个插件。</p>
       <p class="tip">搜索 / 取链 / 歌词沿用原 MusicFree 插件实现，网络统一走宿主 <code>core.http.request</code> 代理；榜单映射到 <code>charts</code>，歌单导入（importMusicSheet）已桥接为 <code>playlistImporters</code>，LRC 歌词转成毫秒时间轴。</p>
       <p class="lx-warn">⚠️ 澜音 v2 artifact、LX 自定义源、MusicFree 插件是三套互不通用的协议，请在对应播放器的插件入口安装。超大插件（agg）采用精简构建，以满足澜音 50 万 AST 节点上限。</p>
-      <p class="tip" style="margin:12px 0 0"><a class="lnk" href="CERU-README.md">📖 查看完整说明（含全部 57 条 raw URL）</a></p>
+      <p class="tip" style="margin:12px 0 0"><a class="lnk" href="CERU-README.md">📖 查看完整说明（含全部 57 条加速链接）</a></p>
     </div>
   </section>
 
@@ -445,9 +445,9 @@ function linksOf(p){
     + '<a class="lnk" href="https://gh.padao.fun/https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/plugins/five-source-lx.plugin.v1.6.0.js">加速</a>';
   if (currentEco === 'ceru') {
     var f = encodeURIComponent(fileOf(p));
-    return '<a class="lnk main" href="' + esc(p.url) + '">⚡ raw 直链</a>'
-      + '<a class="lnk" href="/musicfree-plugins/ceru-plugins/' + f + '">Pages</a>'
-      + '<a class="lnk" href="https://gh.padao.fun/' + esc(p.url) + '">加速</a>';
+    return '<a class="lnk main" href="https://gh.padao.fun/' + esc(p.url) + '">⚡ 加速直链</a>'
+      + '<a class="lnk" href="https://gcore.jsdelivr.net/gh/hebijunge/musicfree-plugins@master/ceru-plugins/' + f + '">gcore</a>'
+      + '<a class="lnk" href="/musicfree-plugins/ceru-plugins/' + f + '">Pages</a>';
   }
   return '<a class="lnk main" href="/musicfree-plugins/plugins/' + encodeURIComponent(fileOf(p)) + '">⚡ Pages 直链</a>'
     + '<a class="lnk" href="https://fastly.jsdelivr.net/gh/hebijunge/musicfree-plugins@master/plugins/' + encodeURIComponent(fileOf(p)) + '">fastly</a>'

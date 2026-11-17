@@ -1,6 +1,7 @@
 {
   "desc": "澜音（CeruMusic）v2 插件 · 由 MusicFree 插件适配并高强度混淆 · 共 57 个",
-  "usage": "在澜音「插件管理 → 添加插件(订阅)」中粘贴单个 .js 的 raw URL；或下载到本地导入。",
+  "usage": "本文件是展示清单，不是澜音订阅格式。在澜音「插件管理 → 添加插件」中粘贴单个 .js 的加速直链，或下载本地导入；raw.githubusercontent.com 在国内常被重置。",
+  "mirrorUrl": "https://gh.padao.fun/https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins.json",
   "rawPrefix": "https://raw.githubusercontent.com/hebijunge/musicfree-plugins/master/ceru-plugins/",
   "pagesPrefix": "https://hebijunge.github.io/musicfree-plugins/ceru-plugins/",
   "plugins": [

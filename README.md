@@ -145,7 +145,7 @@ jihulab.com（GitLab 国内镜像）可作为 jsdelivr 之外的独立兜底源�
 由本仓 57 个 MusicFree 插件适配为澜音 v2 原生 artifact，搜索 / 取链 / 歌词沿用原插件实现。
 
 - 清单：`ceru-plugins.json`（57 条，含能力与 sha256）；逐条 raw URL 见 [CERU-README.md](CERU-README.md)
-- 安装：澜音 → 插件管理 → 添加插件 → 粘贴某个 `.js` 的 raw URL；首次启用授予 network 权限
+- 安装：澜音 → 插件管理 → 添加插件 → 粘贴某个 `.js` 的加速直链（raw.githubusercontent.com 在国内常被重置）；首次启用授予 network 权限
 - 能力：搜索 / 取链 / 歌词 57/57，榜单 49/57，歌单导入 26/57（已桥接为 `playlistImporters`）
 - 注意：v2 artifact 不是订阅清单，也不兼容 LX 脚本；超大插件（agg）采用精简构建以满足澜音 AST 节点上限
 
