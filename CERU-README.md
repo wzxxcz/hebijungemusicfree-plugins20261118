@@ -12,7 +12,7 @@
 ## 说明
 
 - 搜索 / 取链 / 歌词来自原 MusicFree 插件，网络经澜音宿主代理（`core.http.request`），遵守澜音沙箱安全策略。
-- 榜单（getTopLists）在部分插件上可用；歌单导入（importMusicSheet）暂未桥接。
+- 榜单（getTopLists）在 49 个插件上可用；歌单导入（importMusicSheet）已在 26 个插件上桥接为澜音 `playlistImporters`。
 - 混淆档位：默认高强度；超大插件（如 agg）自动降级为轻量档以满足澜音 50 万 AST 节点上限。
 
 ## 插件列表（57 个）

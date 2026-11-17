@@ -1,11 +1,12 @@
 # musicfree-plugins
 
-MusicFree 插件订阅仓库（57 个插件）+ 洛雪（LX Music）自定义源发布仓库，两个生态相互独立。
+三套音源插件生态的发布仓库：**MusicFree（57 个订阅插件）**、**澜音 CeruMusic（57 个 v2 适配插件，高强度混淆）**、**洛雪 LX（五源合一自定义源）**。三套协议互不通用，各自在对应播放器的插件入口安装。
 
-- **MusicFree 插件**：通过「订阅」机制安装/更新，订阅清单不含任何洛雪内容
-- **洛雪自定义源**：五源合一脚本，仅适用于洛雪 App，单独下载导入，与 MusicFree 插件不通用（详见下方专节）
+- **MusicFree 插件**：通过「订阅」机制安装/更新，订阅清单不含任何洛雪 / 澜音内容
+- **澜音 Ceru 插件**：由本仓 57 个 MF 插件适配成的 v2 artifact，单个 raw URL 导入，混淆发布（详见 [CERU-README.md](CERU-README.md)）
+- **洛雪自定义源**：五源合一脚本，适用于所有 LX 协议播放器，单独下载导入，与 MusicFree 插件不通用（详见下方专节）
 
-**订阅站首页**（插件列表、全部订阅地址一键复制）：https://hebijunge.github.io/musicfree-plugins/
+**订阅站首页**（生态胶囊 + 音乐平台胶囊左右滑动筛选、订阅地址一键复制）：https://hebijunge.github.io/musicfree-plugins/
 
 在 MusicFree「插件设置 → 订阅」中填入下面的订阅地址即可一键安装/更新全部插件。
 
@@ -139,7 +140,16 @@ jihulab.com（GitLab 国内镜像）可作为 jsdelivr 之外的独立兜底源�
 
 - 说明：LX 自定义源为非订阅机制，一次导入一个脚本，导入后不会随清单自动更新；版本升级需重新导入。
 
-## 插件清单
+## 澜音（CeruMusic）v2 插件 · 57 个
+
+由本仓 57 个 MusicFree 插件自动适配为澜音 v2 原生 artifact，并做高强度混淆（RC4 字符串数组 + 控制流扁平化 + 十六进制标识符），未混淆源码只在私有仓。
+
+- 清单：`ceru-plugins.json`（57 条，含能力与 sha256）；逐条 raw URL 见 [CERU-README.md](CERU-README.md)
+- 安装：澜音 → 插件管理 → 添加插件 → 粘贴某个 `.js` 的 raw URL；首次启用授予 network 权限
+- 能力：搜索 / 取链 / 歌词 57/57，榜单 49/57，歌单导入 26/57（已桥接为 `playlistImporters`）
+- 注意：v2 artifact 不是订阅清单，也不兼容 LX 脚本；超大插件（agg）自动降轻量混淆档以满足澜音 AST 节点上限
+
+## 插件清单（MusicFree · 57 个）
 
 | QQ音乐 | 1.9.26 | [qq-source.plugin.v1.9.26.js](plugins/qq-source.plugin.v1.9.26.js) |
 | 酷我音乐 | 1.9.24 | [kuwo-source.plugin.v1.9.24.js](plugins/kuwo-source.plugin.v1.9.24.js) |
@@ -201,8 +211,11 @@ jihulab.com（GitLab 国内镜像）可作为 jsdelivr 之外的独立兜底源�
 
 ## 目录结构
 
-- `index.html` — 订阅站首页（数据自动跟随 `plugins.json`，含洛雪专区分区展示与插件搜索）
-- `plugins.json` — MusicFree 订阅清单（结构对齐 musicfreepluginshub：`desc` + `plugins[]`，每项 `name/url/version`；**不含洛雪脚本**）
+- `index.html` — 订阅站首页（顶部生态胶囊「MusicFree / 澜音 Ceru / 洛雪 LX」左右滑动切换，下方音乐平台胶囊横向滑动筛选；数据自动跟随两份清单，含插件搜索）
+- `plugins.json` — MusicFree 订阅清单（结构对齐 musicfreepluginshub：`desc` + `plugins[]`，每项 `name/url/version`；**不含洛雪脚本，也不含澜音插件**）
+- `ceru-plugins.json` — 澜音 v2 插件清单（57 条，含 `capabilities` 与 `sha256`；仅用于页面展示与校验，澜音端按单个 raw URL 导入）
+- `ceru-plugins/*.js` — 澜音 v2 混淆产物（57 个，未混淆源码只在私有仓 `musicfree-plugins-src`）
+- `CERU-README.md` — 澜音插件完整说明与全部 raw URL
 - `plugins/five-source-lx.plugin.v1.6.0.js` — 洛雪自定义源脚本（仅洛雪专区入口分发，不进任何 `plugins*.json`）
 - `plugins-fastly.json` / `plugins-gcore.json` / `plugins-cdn.json` / `plugins-ghproxy.json` / `plugins-proxy-01..20.json` — 备用通道订阅清单（结构与 `plugins.json` 完全一致，仅插件 url 前缀不同）
 - `scripts/sync-jihulab.sh` — jihulab 镜像手动同步脚本（token 走环境变量，不落盘）
